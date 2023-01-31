@@ -1,6 +1,7 @@
 #include "principal.h"
 #include "ui_principal.h"
-
+#include <qgraphicsscene.h>
+#include <QGraphicsView>
 #define DEFAULT_ANCHO 3
 
 Principal::Principal(QWidget *parent)
@@ -115,6 +116,24 @@ void Principal::on_actionNuevo_triggered()
 
 void Principal::on_actionGuardar_triggered()
 {
+    guardar();
+}
+
+void Principal::on_btnNuevo_clicked()
+{
+    mImagen->fill(Qt::white);
+    mNumLineas = 0;
+    update();
+}
+
+
+void Principal::on_btnGuardar_clicked()
+{
+    guardar();
+}
+
+void Principal::guardar()
+{
     // Abrir cuadro de diálogo para obtener el nombre del archivo
     QString nombreArchivo = QFileDialog::getSaveFileName(this,
                                                          "Guardar imagen",
@@ -136,3 +155,33 @@ void Principal::on_actionGuardar_triggered()
         }
     }
 }
+
+void Principal::abrir()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, tr("AbrirImagen"), "/path/to/default/directory", tr("Image Files (*.png)"));
+    QPen pincel;
+    pincel.setColor(mColor);
+    pincel.setWidth(mAncho);
+    mImagen= new QImage(fileName);
+    // Instanciar el Painter a partir de la imagen
+    mPainter = new QPainter(mImagen);
+    mPainter->begin(mImagen);
+    mPainter->setRenderHint(QPainter::Antialiasing);
+    //mPainter->begin(mImagen);
+    mPainter->setPen(pincel);
+    mPainter->drawImage(QPoint(0, 0), *mImagen);
+    //mPainter->end(); //ya se puede dibujar encima porque??
+    //entiendo que al terminar deberia volver a comenzar a dibujar
+    QGraphicsView *view = new QGraphicsView();
+    QGraphicsScene *scene = new QGraphicsScene();
+    view->setScene(scene);
+    scene->addPixmap(QPixmap::fromImage(*mImagen));
+    this->show();
+}
+
+
+void Principal::on_btnAbrir_clicked()
+{
+    abrir();
+}
+

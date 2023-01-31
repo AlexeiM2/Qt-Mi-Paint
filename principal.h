@@ -42,6 +42,16 @@ private slots:
 
     void on_actionGuardar_triggered();
 
+    void on_btnNuevo_clicked();
+
+    void on_btnGuardar_clicked();
+
+    void guardar();
+
+    void abrir();
+
+    void on_btnAbrir_clicked();
+
 private:
     Ui::Principal *ui;
     QImage *mImagen;        // Imagen sobre la que se va a dibujar
