@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>Recursos/abrir-documento.png</file>
+        <file>Recursos/cepillo-de-pintura.png</file>
+        <file>Recursos/circulo.png</file>
+        <file>Recursos/contorno-de-forma-rectangular.png</file>
+        <file>Recursos/garabato.png</file>
+        <file>Recursos/guardar.png</file>
+        <file>Recursos/linea-diagonal.png</file>
+        <file>Recursos/nuevo-documento.png</file>
+    </qresource>
+</RCC>

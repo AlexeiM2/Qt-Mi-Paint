@@ -16,6 +16,10 @@
   <property name="windowTitle">
    <string>Principal</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="recursos.qrc">
+    <normaloff>:/new/prefix1/Recursos/cepillo-de-pintura.png</normaloff>:/new/prefix1/Recursos/cepillo-de-pintura.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
@@ -29,50 +33,99 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="btnNuevo">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(102, 102, 102);</string>
+       </property>
        <property name="text">
         <string>Nuevo</string>
+       </property>
+       <property name="icon">
+        <iconset resource="recursos.qrc">
+         <normaloff>:/new/prefix1/Recursos/nuevo-documento.png</normaloff>:/new/prefix1/Recursos/nuevo-documento.png</iconset>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btnGuardar">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(102, 102, 102);</string>
+       </property>
        <property name="text">
         <string>Guardar</string>
+       </property>
+       <property name="icon">
+        <iconset resource="recursos.qrc">
+         <normaloff>:/new/prefix1/Recursos/guardar.png</normaloff>:/new/prefix1/Recursos/guardar.png</iconset>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btnAbrir">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(102, 102, 102);</string>
+       </property>
        <property name="text">
         <string>Abrir</string>
+       </property>
+       <property name="icon">
+        <iconset resource="recursos.qrc">
+         <normaloff>:/new/prefix1/Recursos/abrir-documento.png</normaloff>:/new/prefix1/Recursos/abrir-documento.png</iconset>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btnLibre">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(102, 102, 102);</string>
+       </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="recursos.qrc">
+         <normaloff>:/new/prefix1/Recursos/garabato.png</normaloff>:/new/prefix1/Recursos/garabato.png</iconset>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btnLineas">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(102, 102, 102);</string>
+       </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="recursos.qrc">
+         <normaloff>:/new/prefix1/Recursos/linea-diagonal.png</normaloff>:/new/prefix1/Recursos/linea-diagonal.png</iconset>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btnRec">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(102, 102, 102);</string>
+       </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="recursos.qrc">
+         <normaloff>:/new/prefix1/Recursos/contorno-de-forma-rectangular.png</normaloff>:/new/prefix1/Recursos/contorno-de-forma-rectangular.png</iconset>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btnCir">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(102, 102, 102);</string>
+       </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="recursos.qrc">
+         <normaloff>:/new/prefix1/Recursos/circulo.png</normaloff>:/new/prefix1/Recursos/circulo.png</iconset>
        </property>
       </widget>
      </item>
@@ -96,6 +149,7 @@
     <addaction name="actionGuardar"/>
     <addaction name="separator"/>
     <addaction name="actionSalir"/>
+    <addaction name="actionAbrir"/>
    </widget>
    <widget class="QMenu" name="menuEstilo">
     <property name="title">
@@ -119,6 +173,10 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNuevo">
+   <property name="icon">
+    <iconset resource="recursos.qrc">
+     <normaloff>:/new/prefix1/Recursos/nuevo-documento.png</normaloff>:/new/prefix1/Recursos/nuevo-documento.png</iconset>
+   </property>
    <property name="text">
     <string>Nuevo</string>
    </property>
@@ -127,6 +185,10 @@
    </property>
   </action>
   <action name="actionGuardar">
+   <property name="icon">
+    <iconset resource="recursos.qrc">
+     <normaloff>:/new/prefix1/Recursos/guardar.png</normaloff>:/new/prefix1/Recursos/guardar.png</iconset>
+   </property>
    <property name="text">
     <string>Guardar</string>
    </property>
@@ -190,7 +252,18 @@
     <string>Circunferencias</string>
    </property>
   </action>
+  <action name="actionAbrir">
+   <property name="icon">
+    <iconset resource="recursos.qrc">
+     <normaloff>:/new/prefix1/Recursos/abrir-documento.png</normaloff>:/new/prefix1/Recursos/abrir-documento.png</iconset>
+   </property>
+   <property name="text">
+    <string>Abrir</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>

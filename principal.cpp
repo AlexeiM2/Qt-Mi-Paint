@@ -12,13 +12,13 @@ Principal::Principal(QWidget *parent)
     // Instanciando la imagen (creando)
     mImagen = new QImage(this->size(),QImage::Format_ARGB32_Premultiplied);
     // Rellenar la imagen de color blanco
-    mImagen->fill(Qt::white);
+    mImagen->fill(Qt::black);
     // Instanciar el Painter a partir de la imagen
     mPainter = new QPainter(mImagen);
     mPainter->setRenderHint(QPainter::Antialiasing);
     // Inicializar otras variables
     mPuedeDibujar = false;
-    mColor = Qt::black;
+    mColor = Qt::blue;
     mAncho = DEFAULT_ANCHO;
     mNumLineas = 0;
 }
@@ -109,7 +109,7 @@ void Principal::on_actionColor_triggered()
 
 void Principal::on_actionNuevo_triggered()
 {
-    mImagen->fill(Qt::white);
+    mImagen->fill(Qt::black);
     mNumLineas = 0;
     update();
 }
@@ -121,7 +121,7 @@ void Principal::on_actionGuardar_triggered()
 
 void Principal::on_btnNuevo_clicked()
 {
-    mImagen->fill(Qt::white);
+    mImagen->fill(Qt::black);
     mNumLineas = 0;
     update();
 }
@@ -181,6 +181,12 @@ void Principal::abrir()
 
 
 void Principal::on_btnAbrir_clicked()
+{
+    abrir();
+}
+
+
+void Principal::on_actionAbrir_triggered()
 {
     abrir();
 }

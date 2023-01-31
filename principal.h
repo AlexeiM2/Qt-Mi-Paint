@@ -52,6 +52,8 @@ private slots:
 
     void on_btnAbrir_clicked();
 
+    void on_actionAbrir_triggered();
+
 private:
     Ui::Principal *ui;
     QImage *mImagen;        // Imagen sobre la que se va a dibujar
