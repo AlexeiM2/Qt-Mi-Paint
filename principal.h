@@ -54,6 +54,14 @@ private slots:
 
     void on_actionAbrir_triggered();
 
+    void on_btnLibre_clicked();
+
+    void on_btnRec_clicked();
+
+    void on_btnLineas_clicked();
+
+    void on_btnCir_clicked();
+
 private:
     Ui::Principal *ui;
     QImage *mImagen;        // Imagen sobre la que se va a dibujar
@@ -64,5 +72,9 @@ private:
     int mAncho;             // Define el ancho del pincel
     QColor mColor;          // Define el color del pincel
     int mNumLineas;         // Cuenta el número de líneas
+    bool dibujarrect;
+    bool dibujarcir;
+    int m_opc;
+    bool m_toogle = true;
 };
 #endif // PRINCIPAL_H

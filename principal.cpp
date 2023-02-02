@@ -60,6 +60,8 @@ void Principal::mouseMoveEvent(QMouseEvent *event)
         return;
     }
     // Capturar el punto a donde se mueve el mouse
+    if(m_opc == 1)
+        // Capturar el punto a donde se mueve el mouse
     mFinal = event->pos();
     // Crear un pincel y establecer atributos
     QPen pincel;
@@ -78,10 +80,58 @@ void Principal::mouseMoveEvent(QMouseEvent *event)
 
 void Principal::mouseReleaseEvent(QMouseEvent *event)
 {
-    // Bajar la bandera (no se puede dibujar)
-    mPuedeDibujar = false;
-    // Aceptar el vento
-    event->accept();
+    if(m_opc == 2){
+        mPuedeDibujar = false;
+        // Capturar el punto donde se suelta el mouse
+        mFinal= event->pos();
+        //Crear un pincel y establecer atributos
+        QPen pincel;
+        pincel.setColor(mColor);
+        pincel.setWidth(mAncho);
+        //Dibujar lineas
+        mPainter->setPen(pincel);
+        mPainter->drawLine(mInicial,mFinal);
+        //Actualizar
+        update();
+        // Aceptar el evento
+        event->accept();
+    }
+    //Rectangulo
+    if(m_opc == 3){
+        mPuedeDibujar = false;
+        // Capturar el punto donde se suelta el mouse
+        mFinal = event->pos();
+        //Crear un pincel y establecer atributos
+        QPen pincel;
+        pincel.setColor(mColor);
+        pincel.setWidth(mAncho);
+        //Dibujar rectangulos
+        QRect rectangulo (mInicial, mFinal);
+        mPainter->setPen(pincel);
+        mPainter->drawRect(rectangulo);
+        //Actualizar
+        update();
+        // Aceptar el evento
+        event->accept();
+    }
+    //Circunferencia
+    if(m_opc ==4){
+        mPuedeDibujar = false;
+        // Capturar el punto donde se suelta el mouse
+        mFinal = event->pos();
+        //Crear un pincel y establecer atributos
+        QPen pincel;
+        pincel.setColor(mColor);
+        pincel.setWidth(mAncho);
+        //Dibujar circunferencias
+        QRectF circulos (mInicial, mFinal);
+        mPainter->setPen(pincel);
+        mPainter->drawEllipse(circulos);
+        //Actualizar
+        update();
+        // Aceptar el evento
+        event->accept();
+    }
 
 }
 
@@ -189,5 +239,29 @@ void Principal::on_btnAbrir_clicked()
 void Principal::on_actionAbrir_triggered()
 {
     abrir();
+}
+
+
+void Principal::on_btnLibre_clicked()
+{
+    m_opc = 1;
+
+}
+
+void Principal::on_btnLineas_clicked()
+{
+    m_opc = 2;
+    m_toogle = true;
+}
+
+
+void Principal::on_btnRec_clicked()
+{
+     m_opc = 3;
+}
+
+void Principal::on_btnCir_clicked()
+{
+    m_opc = 4;
 }
 
